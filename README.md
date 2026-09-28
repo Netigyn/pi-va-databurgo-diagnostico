@@ -43,14 +43,14 @@ empresa já possui em um diagnóstico objetivo, comparável e reutilizável a
 cada novo período.
 
 Todo o raciocínio, a justificativa dos indicadores e a metodologia estão
-detalhados em `relatorio_tecnico_databurgo.docx`.
+detalhados em `relatorio_tecnico_databurgo.pdf`.
 
 ## Estrutura do repositório
 
 ```
 PI-VA_Databurgo_CustomerAnalytics/
 ├── README.md                          este arquivo
-├── relatorio_tecnico_databurgo.docx   relatório técnico completo (entregável 3.1)
+├── relatorio_tecnico_databurgo.pdf    relatório técnico completo (entregável 3.1)
 ├── app_diagnostico.py                 dashboard interativo em Streamlit (entregável 3.2 e 3.3)
 ├── benchmarks_mercado.csv             base de benchmarks de mercado, com fontes citadas
 └── fa3e6eed-...pdf                    proposta oficial do Projeto Integrador V-A (enunciado)
@@ -103,4 +103,4 @@ Referências do relatório técnico.
   segmento de pequenas empresas de desenvolvimento web; a faixa usada no
   app é uma linha de base interna, não uma comparação externa rígida.
 
-Detalhes completos em `relatorio_tecnico_databurgo.docx`, seção 12.
+Detalhes completos em `relatorio_tecnico_databurgo.pdf`, seção 12.
