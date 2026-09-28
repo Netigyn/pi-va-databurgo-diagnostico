@@ -5,6 +5,23 @@ Aluno: Giancarlo Neves da Cruz | Matrícula: 2025 2.0792.0007-3
 Professor: Thalles Bruno Gonçalves Nery dos Santos
 Organização parceira: Databurgo Brasil Tecnologia
 
+## Acesse o dashboard online
+
+🔗 **https://databurgo-diagnostico.streamlit.app**
+
+Não precisa instalar nada — abra o link acima direto no navegador. Se preferir
+rodar localmente (ou o link estiver fora do ar), veja a seção "Como rodar o
+dashboard" mais abaixo.
+
+> ⚠️ **Nota:** por ser hospedado no plano gratuito do Streamlit Community
+> Cloud, o app "adormece" automaticamente após um período sem acessos. Se a
+> tela mostrar "Zzzz — This app has gone to sleep due to inactivity", basta
+> clicar em **"Yes, get this app back up!"** — em cerca de 20 a 30 segundos
+> ele volta a funcionar normalmente, com os mesmos dados. Não é um erro do
+> projeto, apenas o comportamento padrão do serviço gratuito.
+
+Repositório no GitHub: https://github.com/Netigyn/pi-va-databurgo-diagnostico
+
 ## O que este projeto é
 
 Uma ferramenta interativa (Streamlit) que compara números agregados de uma
@@ -12,7 +29,9 @@ pequena empresa de serviços de tecnologia — clientes ativos, cancelamentos,
 receita recorrente (MRR) e contratos múltiplos — a benchmarks de mercado,
 apoiando decisões sobre retenção e relacionamento com clientes.
 
-
+**Não** utiliza nem simula dados individuais de clientes. Todos os cálculos
+partem de totais agregados informados diretamente pela organização parceira,
+conforme descrito na seção 5 do relatório técnico.
 
 ## Contexto
 
@@ -50,7 +69,12 @@ A justificativa completa de cada indicador está na seção 6 do relatório téc
 
 ## Como rodar o dashboard
 
-Pré-requisitos: Python 3.9+ instalado.
+**Opção 1 — Online (recomendado):** acesse
+https://databurgo-diagnostico.streamlit.app direto no navegador, sem instalar
+nada. Se o app estiver "dormindo" por inatividade, veja a nota no topo deste
+documento sobre como reativá-lo.
+
+**Opção 2 — Localmente:** pré-requisitos: Python 3.9+ instalado.
 
 ```bash
 pip install streamlit plotly pandas
