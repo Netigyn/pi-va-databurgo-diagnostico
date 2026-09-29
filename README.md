@@ -49,11 +49,13 @@ detalhados em `relatorio_tecnico_databurgo.pdf`.
 
 ```
 PI-VA_Databurgo_CustomerAnalytics/
-├── README.md                          este arquivo
-├── relatorio_tecnico_databurgo.pdf    relatório técnico completo (entregável 3.1)
-├── app_diagnostico.py                 dashboard interativo em Streamlit (entregável 3.2 e 3.3)
-├── benchmarks_mercado.csv             base de benchmarks de mercado, com fontes citadas
-└── fa3e6eed-...pdf                    proposta oficial do Projeto Integrador V-A (enunciado)
+├── README.md                              este arquivo
+├── relatorio_tecnico_databurgo.pdf        relatório técnico completo (entregável 3.1)
+├── app_diagnostico.py                     dashboard interativo em Streamlit (entregável 3.2 e 3.3)
+├── analise_indicadores_databurgo.ipynb    notebook com o cálculo dos indicadores
+├── benchmarks_mercado.csv                 base de benchmarks de mercado, com fontes citadas
+├── apresentacao_oral_databurgo.pptx       apresentação oral do projeto
+└── requirements.txt                       dependências Python do dashboard
 ```
 
 ## Indicadores (KPIs)
@@ -77,7 +79,7 @@ documento sobre como reativá-lo.
 **Opção 2 — Localmente:** pré-requisitos: Python 3.9+ instalado.
 
 ```bash
-pip install streamlit plotly pandas
+pip install -r requirements.txt
 streamlit run app_diagnostico.py
 ```
 
