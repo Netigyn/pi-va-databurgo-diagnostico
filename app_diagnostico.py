@@ -65,7 +65,16 @@ def classificar_cross_sell(valor: float) -> tuple[str, str]:
     return "Abaixo da linha de base interna — oportunidade de cross-sell", COR_CRITICO
 
 
-def gauge_comparativo(valor: float, faixa_min: float, faixa_max: float, titulo: str, unidade: str, cor: str, eixo_max: float) -> go.Figure:
+def gauge_comparativo(
+    valor: float,
+    faixa_min: float,
+    faixa_max: float,
+    titulo: str,
+    unidade: str,
+    cor: str,
+    eixo_max: float,
+    rotulo_faixa: str | None = None,
+) -> go.Figure:
     fig = go.Figure(
         go.Indicator(
             mode="gauge+number",
@@ -76,17 +85,23 @@ def gauge_comparativo(valor: float, faixa_min: float, faixa_max: float, titulo: 
                 "axis": {"range": [0, eixo_max]},
                 "bar": {"color": cor},
                 "steps": [
-                    {"range": [faixa_min, faixa_max], "color": "#E8F5E9"},
+                    {"range": [faixa_min, faixa_max], "color": "#A5D6A7"},
                 ],
                 "threshold": {
-                    "line": {"color": "#333333", "width": 3},
+                    "line": {"color": "#1B5E20", "width": 3},
                     "thickness": 0.85,
                     "value": faixa_max,
                 },
             },
         )
     )
-    fig.update_layout(height=260, margin=dict(l=20, r=20, t=50, b=10))
+    fig.update_layout(height=280, margin=dict(l=20, r=20, t=50, b=35))
+    if rotulo_faixa:
+        fig.add_annotation(
+            text=rotulo_faixa,
+            x=0.5, y=-0.08, xref="paper", yref="paper",
+            showarrow=False, font=dict(size=13, color="#1B5E20"),
+        )
     return fig
 
 
@@ -192,6 +207,10 @@ with colA:
             "%",
             cor_churn,
             eixo_max=max(10.0, churn_mensal_pct * 1.3),
+            rotulo_faixa=(
+                f"Faixa saudável de mercado: {faixa_saudavel['valor_min']:.0f}%"
+                f"–{faixa_saudavel['valor_max']:.0f}%"
+            ),
         ),
         use_container_width=True,
     )
@@ -222,6 +241,10 @@ with col_cs:
         gauge_comparativo(
             cross_sell_pct, cs_bench["valor_min"], cs_bench["valor_max"],
             "Cross-sell (%)", "%", cor_cs, eixo_max=100,
+            rotulo_faixa=(
+                f"Linha de base interna: {cs_bench['valor_min']:.0f}%"
+                f"–{cs_bench['valor_max']:.0f}%"
+            ),
         ),
         use_container_width=True,
     )
@@ -234,6 +257,10 @@ with col_sat:
         gauge_comparativo(
             satisfacao, sat_bench["valor_min"], sat_bench["valor_max"],
             "Satisfação percebida (0–10)", "", COR_NEUTRO, eixo_max=10,
+            rotulo_faixa=(
+                f"Referência qualitativa: {sat_bench['valor_min']:.1f}"
+                f"–{sat_bench['valor_max']:.1f}"
+            ),
         ),
         use_container_width=True,
     )
